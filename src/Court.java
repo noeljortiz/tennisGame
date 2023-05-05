@@ -11,10 +11,12 @@ public class Court{
         JPanel myPanel = new JPanel();
         myPanel.setLayout(new BorderLayout(2,3));
         myPanel.setBackground(new Color(0,103,34));
-
-
-        myFrame.add(myPanel);
+        LinesAndTangles myLine = new LinesAndTangles();
         myFrame.setVisible(true);
+        myFrame.add(myPanel);
+        myFrame.add(myLine);
+        myFrame.setVisible(true);
+
 
 
     }
