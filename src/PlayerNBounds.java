@@ -11,10 +11,11 @@ public class PlayerNBounds extends JPanel{
     int yspeed = 9;
 
       Players silly;
+      Players silly2;
     public PlayerNBounds(){
-        setBackground(new Color(0,255,0));
-        silly = new Players(70,90,30);
-
+        setBackground(new Color(0,103,34));
+        silly = new Players(100,50,20,80);
+        silly2 = new Players(900,50,20,80);
 
 
 
@@ -31,17 +32,30 @@ public class PlayerNBounds extends JPanel{
 
                 System.out.println(e.getKeyCode());
                 int blahhh = e.getKeyCode();
-                if (blahhh == 68 || blahhh == 39){
+                if (blahhh == 68){
                     silly.moveRight();
                 }
-                if(blahhh == 87 || blahhh == 38){
+                if(blahhh == 87 ){
                     silly.moveUp();
                 }
-                if(blahhh == 65 || blahhh == 37){
+                if(blahhh == 65 ){
                     silly.moveLeft();
                 }
-                if(blahhh == 83 || blahhh == 40){
+                if(blahhh == 83 ){
                     silly.moveDown();
+
+                }
+                if (blahhh == 39){
+                    silly2.moveRight();
+                }
+                if(blahhh == 38){
+                    silly2.moveUp();
+                }
+                if(blahhh == 37){
+                    silly2.moveLeft();
+                }
+                if( blahhh == 40){
+                    silly2.moveDown();
 
                 }
 
@@ -65,7 +79,11 @@ public class PlayerNBounds extends JPanel{
 
 
 
-        g.fillOval(silly.getX(),silly.getY(),silly.getSize(),silly.getSize());
+       g.fillRect(silly.getX(), silly.getY(), silly.getWidth(), silly.getHeight());
+        g.fillRect(silly2.getX(), silly2.getY(), silly2.getWidth(), silly2.getHeight());
+
+        g.setColor(Color.white);
+        g.fillRect(450,0,50,500);
         silly.swap();
         silly.wall();
 

@@ -1,13 +1,14 @@
 import javax.swing.*;
 import java.awt.*;
 public class Players extends JPanel{
-    private int x,y;
-    private int size;
+    private int x,y,width,height;
 
-    public Players(int x,int y,int size){
+    public Players(int x,int y,int width,int height){
         this.x=x;
         this.y=y;
-        this.size = size;
+        this.width = width;
+        this.height = height;
+
     }
     public int getX(){
         return x;
@@ -17,9 +18,13 @@ public class Players extends JPanel{
         return y;
     }
 
-    public int getSize(){
-        return size;
+    public int getWidth(){
+        return width;
     }
+    public int getHeight(){
+        return height;
+    }
+
     public void moveRight(){
         x+=5;
 
@@ -34,7 +39,7 @@ public class Players extends JPanel{
         y-=5;
     }
     public void swap() {
-        if (x > 500) {
+        if (x > 1000) {
             x = 0;
         }
         if (x < -50) {
@@ -42,8 +47,8 @@ public class Players extends JPanel{
         }
     }
     public void wall(){
-        if (y > 500){
-            y = 495;
+        if (y > 1000){
+            y = 995;
         }
         if (y <  -5){
             y = 0;
