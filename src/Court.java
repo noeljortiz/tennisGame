@@ -3,9 +3,11 @@ import java.awt.*;
 public class Court{
 
     public static void main(String[]args){
+        int p1 = 0;
 
 
         JFrame myFrame = new JFrame();
+        JLabel p1Score = new JLabel(""+p1);
         myFrame.setSize(1000,500);
 
         JPanel myPanel = new JPanel();
@@ -18,6 +20,7 @@ public class Court{
         myFrame.add(myLine);
         myFrame.add(myPlayer);
         myFrame.setVisible(true);
+
 
 
 

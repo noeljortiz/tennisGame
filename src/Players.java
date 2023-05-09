@@ -55,6 +55,15 @@ public class Players extends JPanel{
         }
     }
 
+////    public void hitBall(){
+//        if (y > 1000){
+//            y = 995;
+//        }
+//        if (y <  -5){
+//            y = 0;
+//        }
+//    }
+
     @Override
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
