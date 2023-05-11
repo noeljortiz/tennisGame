@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.Rectangle;
 
 public class TBall extends JPanel {
     private int x,y,size;
@@ -45,6 +46,29 @@ public class TBall extends JPanel {
         if(y >= 450 - 20 || y <= 0) {
             yspeed *= -1;
         }
+    }
+    public Rectangle getBounds() {
+        return new Rectangle(x, y, size, size);
+    }
+    void move() {
+        if (x + xspeed < 0)
+            xspeed = 1;
+        if (x + xspeed > PlayerNBounds.getWidth() - size)
+            xspeed = -1;
+        if (y + ya < 0)
+            ya = 1;
+        if (y + ya > game.getHeight() - size)
+            game.gameOver();
+        if (collision()){
+            yspeed = -1;
+            y = PlayerNBounds..getTopY() - size;
+        }
+        x = x + xa;
+        y = y + ya;
+    }
+
+    private boolean collision() {
+        return game.racquet.getBounds().intersects(getBounds());
     }
 
 

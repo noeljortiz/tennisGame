@@ -54,6 +54,10 @@ public class Players extends JPanel{
             y = 0;
         }
     }
+    public Rectangle getBounds() {
+        return new Rectangle(x, y, width, height);
+    }
+
 
 ////    public void hitBall(){
 //        if (y > 1000){
