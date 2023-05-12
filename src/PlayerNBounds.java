@@ -133,8 +133,7 @@ public class PlayerNBounds extends JPanel{
             System.out.println("hit");
         }
         if(ball.getY() == silly2.getY() && ball.getX() == silly2.getX()){
-           // silly2.hitBall();;
-            ball.moveBall();
+           // silly2.hitBall();
             System.out.println("hit");
 
         }

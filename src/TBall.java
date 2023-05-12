@@ -1,14 +1,21 @@
 import javax.swing.*;
 import java.awt.Rectangle;
+import java.awt.Graphics2D;
 
 public class TBall extends JPanel {
     private int x,y,size;
-    private double xspeed = 1;
-    private double yspeed = 1;
+    private int xspeed = 1;
+    private int yspeed = 1;
+    private PlayerNBounds game;
+
     public  TBall(int x, int y, int size){
         this.x = x;
         this.y = y;
         this.size = size;
+    }
+
+    public TBall(PlayerNBounds game) {
+        this.game= game;
     }
     public int getX(){
         return x;
@@ -47,29 +54,32 @@ public class TBall extends JPanel {
             yspeed *= -1;
         }
     }
-    public Rectangle getBounds() {
-        return new Rectangle(x, y, size, size);
-    }
     void move() {
         if (x + xspeed < 0)
             xspeed = 1;
-        if (x + xspeed > PlayerNBounds.getWidth() - size)
+        if (x + xspeed > game.getHeight()- size)
             xspeed = -1;
-        if (y + ya < 0)
-            ya = 1;
-        if (y + ya > game.getHeight() - size)
-            game.gameOver();
+        if (y + yspeed < 0)
+            yspeed = 1;
+        if (y + yspeed > game.getWidth() - size)
+           // PlayerNBounds.gameOver();
         if (collision()){
             yspeed = -1;
-            y = PlayerNBounds..getTopY() - size;
+            y = game.getY() - size;
         }
-        x = x + xa;
-        y = y + ya;
+        x = x + xspeed;
+        y = y + yspeed;
     }
 
     private boolean collision() {
-        return game.racquet.getBounds().intersects(getBounds());
+        return game.silly.getBounds().intersects(getBounds());
+    }
+    public void paint(Graphics2D g) {
+        g.fillOval(x, y, size, size);
     }
 
+    public Rectangle getBounds() {
+        return new Rectangle(x, y, size, size);
+    }
 
 }

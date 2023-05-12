@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 public class Players extends JPanel{
     private int x,y,width,height;
+    private PlayerNBounds game;
+
 
     public Players(int x,int y,int width,int height){
         this.x=x;
@@ -9,6 +11,10 @@ public class Players extends JPanel{
         this.width = width;
         this.height = height;
 
+    }
+
+    public Players(PlayerNBounds game) {
+        this.game = game;
     }
     public int getX(){
         return x;
@@ -21,7 +27,7 @@ public class Players extends JPanel{
     public int getWidth(){
         return width;
     }
-    public int getHeight(){
+    public  int getHeight(){
         return height;
     }
 
