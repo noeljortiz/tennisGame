@@ -5,17 +5,15 @@ public class Players extends JPanel{
     private PlayerNBounds game;
 
 
-    public Players(int x,int y,int width,int height){
+    public Players(int x,int y,int width,int height, PlayerNBounds game){
         this.x=x;
         this.y=y;
         this.width = width;
         this.height = height;
-
-    }
-
-    public Players(PlayerNBounds game) {
         this.game = game;
     }
+
+
     public int getX(){
         return x;
     }
@@ -32,26 +30,26 @@ public class Players extends JPanel{
     }
 
     public void moveRight(){
-        x+=5;
+        x+=10;
 
     }
     public void moveLeft(){
-        x-=5;
+        x-=10;
     }
     public void moveDown(){
-        y+=5;
+        y+=10;
     }
     public void moveUp(){
-        y-=5;
+        y-=10;
     }
-    public void swap() {
-        if (x > 1000) {
-            x = 0;
-        }
-        if (x < -50) {
-            x = 475;
-        }
-    }
+//    public void swap() {
+//        if (x > 1000) {
+//            x = 0;
+//        }
+//        if (x < -50) {
+//            x = 475;
+//        }
+//    }
     public void wall(){
         if (y > 1000){
             y = 995;
@@ -78,7 +76,7 @@ public class Players extends JPanel{
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
         g.setColor(Color.black);
-        g.fillRect(5,0,50,100);
+        g.fillRect(x,y,width,height);
     }
 
 }

@@ -8,10 +8,11 @@ public class TBall extends JPanel {
     private int yspeed = 1;
     private PlayerNBounds game;
 
-    public  TBall(int x, int y, int size){
+    public  TBall(int x, int y, int size,PlayerNBounds game){
         this.x = x;
         this.y = y;
         this.size = size;
+        this.game = game;
     }
 
     public TBall(PlayerNBounds game) {
@@ -62,10 +63,8 @@ public class TBall extends JPanel {
         if (y + yspeed < 0)
             yspeed = 1;
         if (y + yspeed > game.getWidth() - size)
-           // PlayerNBounds.gameOver();
         if (collision()){
-            yspeed = -1;
-            y = game.getY() - size;
+            xspeed = -1;
         }
         x = x + xspeed;
         y = y + yspeed;
@@ -73,6 +72,9 @@ public class TBall extends JPanel {
 
     private boolean collision() {
         return game.silly.getBounds().intersects(getBounds());
+    }
+    private boolean collision2() {
+        return game.silly2.getBounds().intersects(getBounds());
     }
     public void paint(Graphics2D g) {
         g.fillOval(x, y, size, size);

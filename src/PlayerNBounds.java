@@ -10,14 +10,16 @@ public class PlayerNBounds extends JPanel{
     int y = (int)Math.random()*(1-500)+1;
     int yspeed = 9;
 
+
+
     Players silly;
     Players silly2;
     TBall ball;
     public PlayerNBounds(){
         setBackground(new Color(0,103,34));
-        silly = new Players(100,50,20,80);
-        silly2 = new Players(900,50,20,80);
-        ball = new TBall(20,50,15);
+        silly = new Players(100,50,20,80,this);
+        silly2 = new Players(900,50,20,80,this);
+        ball = new TBall(20,50,15,this);
 
 
 
@@ -110,26 +112,22 @@ public class PlayerNBounds extends JPanel{
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
 
-
-
-
         g.fillRect(silly.getX(), silly.getY(), silly.getWidth(), silly.getHeight());
         g.fillRect(silly2.getX(), silly2.getY(), silly2.getWidth(), silly2.getHeight());
-
         g.setColor(Color.white);
         g.fillRect(450,0,50,500);
         g.setColor(Color.yellow);
         g.fillOval(ball.getX(),ball.getY(),ball.getSizee(),ball.getSizee());
-        silly.swap();
+       // silly.swap();
         silly.wall();
-        silly2.swap();
+       // silly2.swap();
         silly2.wall();
         //ball.swap();
         ball.wall();
         ball.moveBall();
+       // ball.move();
         if(ball.getY() == silly.getY() && ball.getX() == silly.getX()){
-          //  silly.hitBall();;
-            ball.moveBall();
+
             System.out.println("hit");
         }
         if(ball.getY() == silly2.getY() && ball.getX() == silly2.getX()){
@@ -142,7 +140,7 @@ public class PlayerNBounds extends JPanel{
 
 
         try{
-            Thread.sleep(100);
+            Thread.sleep(25);
         }
         catch(Exception e){
             System.out.println(e);
